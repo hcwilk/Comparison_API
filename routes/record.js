@@ -45,7 +45,7 @@ recordRoutes.route('/:brand').get(async function (req, res) {
   });
 
 
-  recordRoutes.route('/plans/:brand').get(async function (req, res) {
+  recordRoutes.route('/plans').get(async function (req, res) {
 	const dbConnect = dbo.getDb();
 	const query = parseInt(req.params.id);
 
@@ -61,13 +61,13 @@ recordRoutes.route('/:brand').get(async function (req, res) {
 		if (err) {
 		  res.status(400).send('Error fetching listings!');
 		} else {
-		  res.json(result[query-2]);
+		  res.json(result);
 		}
 	  });
   });
 
 recordRoutes.route('/').get(async function (_req, res) {
-	res.json({"helo":"world"})
+	res.json({"Add /(whatever carrier you want) to the path to see the database":"or go /plans to see everything"})
 });
 
 
